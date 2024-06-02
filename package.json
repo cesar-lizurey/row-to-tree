@@ -1,19 +1,31 @@
 {
-    "name": "row-to-tree",
-    "version": "1.0.0",
-    "description": "Convert an array of objects into a tree structure",
-    "main": "index.js",
-    "scripts": {
-      "test": "jest"
-    },
-    "keywords": [
-      "array",
-      "tree",
-      "hierarchy"
-    ],
-    "author": "César Lizurey <cesar@lizurey.fr>",
-    "license": "MIT",
-    "devDependencies": {
-      "jest": "^27.0.6"
-    }
-  }
+  "name": "row-to-tree",
+  "version": "1.0.1",
+  "description": "Convert an array of objects into a tree structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "array",
+    "tree",
+    "hierarchy"
+  ],
+  "author": "César Lizurey <cesar@lizurey.fr>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cesar-lizurey/row-to-tree.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cesar-lizurey/row-to-tree/issues"
+  },
+  "homepage": "https://github.com/cesar-lizurey/row-to-tree#readme"
+}

@@ -28,13 +28,13 @@ You will end up with an array of objects,
 ### Installation
 
 ```sh
-npm install --save array-to-tree
+npm install --save row-to-tree
 ```
 
 ### Usage
 
 ```javascript
-const { rowToTree } = require('array-to-tree');
+const { rowToTree } = require('row-to-tree');
 
 const data = [
   { id: 1, id_parent: null, name: "ROOT" },

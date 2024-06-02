@@ -1,0 +1,37 @@
+<mxfile host="Electron" modified="2024-06-02T07:07:22.777Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.13 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="vbde4Et3Maj_v4c83Z8k" version="24.4.13" type="device">
+  <diagram name="Page-1" id="DEP5DyKL6yS2AcJEFJ0V">
+    <mxGraphModel dx="1364" dy="843" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lEnIDgi2UlxdafLgApHp-1" value="Main array" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=top;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="150" width="370" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="lEnIDgi2UlxdafLgApHp-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lEnIDgi2UlxdafLgApHp-2" target="lEnIDgi2UlxdafLgApHp-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lEnIDgi2UlxdafLgApHp-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lEnIDgi2UlxdafLgApHp-2" target="lEnIDgi2UlxdafLgApHp-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lEnIDgi2UlxdafLgApHp-2" value="ROOT" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="210" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lEnIDgi2UlxdafLgApHp-3" value="NEW ROOT" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="380" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lEnIDgi2UlxdafLgApHp-5" value="OTHER LEAF" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="294" y="290" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lEnIDgi2UlxdafLgApHp-6" value="LEAF SISTER" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="163" y="330" width="95" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lEnIDgi2UlxdafLgApHp-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lEnIDgi2UlxdafLgApHp-14" target="lEnIDgi2UlxdafLgApHp-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lEnIDgi2UlxdafLgApHp-14" value="LEAF 2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="163" y="255" width="95" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

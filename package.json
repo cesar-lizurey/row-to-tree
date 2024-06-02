@@ -1,0 +1,19 @@
+{
+    "name": "row-to-tree",
+    "version": "1.0.0",
+    "description": "Convert an array of objects into a tree structure",
+    "main": "index.js",
+    "scripts": {
+      "test": "jest"
+    },
+    "keywords": [
+      "array",
+      "tree",
+      "hierarchy"
+    ],
+    "author": "César Lizurey <cesar@lizurey.fr>",
+    "license": "MIT",
+    "devDependencies": {
+      "jest": "^27.0.6"
+    }
+  }

@@ -1,6 +1,6 @@
 {
   "name": "row-to-tree",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Convert an array of objects into a tree structure",
   "main": "index.js",
   "scripts": {

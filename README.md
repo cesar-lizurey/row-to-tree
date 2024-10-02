@@ -88,14 +88,15 @@ You will get this nested array:
 
 ### API
 
-`rowToTree(data, [idKey], [parentKey], [childrenKey])`
+`rowToTree(data, options)`
 
 Convert an array of objects into a tree structure.
 
 - `data` (Array): _the array of objects to convert;_
-- `idKey` (String, optional): _the name of the key that identifies an object (default: "id");_
-- `parentKey` (String, optional): _the name of the key that identifies the parent of an object (default: "id_parent");_
-- `childrenKey` (String, optional): _the name of the key that will contain the children of an object (default: "children")._
+- `options` (JSON, optional): _the JSON of customized paramaters_
+  - `idKey` (String, optional): _the name of the key that identifies an object (default: "id");_
+  - `parentKey` (String, optional): _the name of the key that identifies the parent of an object (default: "id_parent");_
+  - `childrenKey` (String, optional): _the name of the key that will contain the children of an object (default: "children")._
 
 Returns an array of root objects.
 

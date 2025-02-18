@@ -1,8 +1,9 @@
 function rowToTree(data, options = {}) {
   const defaultOptions = {
-    idKey: 'id',
-    parentKey: 'id_parent',
-    childrenKey: 'children'
+    idKey: "id",
+    parentKey: "id_parent",
+    childrenKey: "children",
+    cleanEmptyChildren: false,
   };
   const mergedOptions = { ...defaultOptions, ...options };
 
@@ -27,13 +28,35 @@ function rowToTree(data, options = {}) {
     }
   });
 
+  // Fonction récursive pour supprimer les clés vides si cleanEmptyChildren est activé
+  function cleanTree(node) {
+    if (Array.isArray(node)) {
+      node.forEach(cleanTree);
+    } else {
+      if (
+        mergedOptions.cleanEmptyChildren &&
+        node[mergedOptions.childrenKey].length === 0
+      ) {
+        delete node[mergedOptions.childrenKey];
+      } else {
+        node[mergedOptions.childrenKey].forEach(cleanTree);
+      }
+    }
+  }
+
+  if (mergedOptions.cleanEmptyChildren) {
+    cleanTree(roots);
+  }
+
   /*
     There may be several roots, that's why an Array is returned.
     The roots are sorted by their id, in order to prevent a random order of the items
   */
-  return roots.sort((a,b) => a[mergedOptions.idKey] > b[mergedOptions.idKey] ? 1 : -1);
+  return roots.sort((a, b) =>
+    a[mergedOptions.idKey] > b[mergedOptions.idKey] ? 1 : -1
+  );
 }
 
 module.exports = {
-  rowToTree
+  rowToTree,
 };

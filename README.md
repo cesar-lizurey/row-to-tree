@@ -1,4 +1,5 @@
 # row-to-tree
+
 Converts an array of objects into a tree structure
 
 ## Why?
@@ -13,15 +14,15 @@ This module helps you convert the original array into an array of parents and ch
 
 The test file provides an example of what could be done. Suppose you have the following table:
 
-| id | id_parent |     name    |
-|:--:|:---------:|:-----------:|
-| 1  | null      | ROOT        |
-| 2  | 1         | LEAF 2      |
-| 4  | 1         | LEAF SISTER |
-| 6  | 2         | OTHER LEAF  |
-| 5  | null      | NEW ROOT    |
+| id  | id_parent |    name     |
+| :-: | :-------: | :---------: |
+|  1  |   null    |    ROOT     |
+|  2  |     1     |   LEAF 2    |
+|  4  |     1     | LEAF SISTER |
+|  6  |     2     | OTHER LEAF  |
+|  5  |   null    |  NEW ROOT   |
 
-You will end up with an array of objects, 
+You will end up with an array of objects,
 
 ## How?
 
@@ -34,7 +35,7 @@ npm install --save row-to-tree
 ### Usage
 
 ```javascript
-const { rowToTree } = require('row-to-tree');
+const { rowToTree } = require("row-to-tree");
 
 const data = [
   { id: 1, id_parent: null, name: "ROOT" },
@@ -65,23 +66,23 @@ You will get this nested array:
             id: 6,
             id_parent: 2,
             name: "OTHER LEAF",
-            children: []
-          }
-        ]
+            children: [],
+          },
+        ],
       },
       {
         id: 4,
         id_parent: 1,
         name: "LEAF SISTER",
-        children: []
-      }
-    ]
+        children: [],
+      },
+    ],
   },
   {
     id: 5,
     id_parent: null,
     name: "NEW ROOT",
-    children: []
+    children: [],
   },
 ];
 ```
@@ -97,6 +98,7 @@ Convert an array of objects into a tree structure.
   - `idKey` (String, optional): _the name of the key that identifies an object (default: "id");_
   - `parentKey` (String, optional): _the name of the key that identifies the parent of an object (default: "id_parent");_
   - `childrenKey` (String, optional): _the name of the key that will contain the children of an object (default: "children")._
+  - `cleanEmptyChildren` (Boolean, optional): _delete the `childrenKey` if the node has no child, i.e. a leaf._
 
 Returns an array of root objects.
 

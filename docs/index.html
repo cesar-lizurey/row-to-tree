@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Row-to-tree demo" />
+    <link rel="icon" type="image/png" href="./images/favicon/favicon.ico" />
+    <meta
+      name="keywords"
+      content="Convert, table, tree, structure, hierarchy, SQL, PostGreSQL, PostGre, PostGres, PG, MySQL, MariaDB, Oracle"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Row-to-tree demo" />
+    <meta
+      property="og:description"
+      content="Demo to test a module converting SQL rows into a tree."
+    />
+    <meta
+      property="og:image"
+      content="https://cesar-lizurey.github.io/row-to-tree/logo_row-to-tree.png"
+    />
+    <meta
+      property="og:url"
+      content="https://cesar-lizurey.github.io/row-to-tree/"
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Row-to-tree demo" />
+    <meta
+      name="twitter:description"
+      content="Demo to test a module converting SQL rows into a tree."
+    />
+    <meta
+      name="twitter:image"
+      content="https://cesar-lizurey.github.io/row-to-tree/logo_row-to-tree.png"
+    />
+
+    <title>Row to Tree Demo</title>
+    <script src="https://unpkg.com/row-to-tree"></script>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+
+      #title {
+        text-align: center;
+      }
+
+      h2 {
+        color: #4caf50;
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: #555;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+      }
+
+      textarea {
+        width: 100%;
+        height: 150px;
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        resize: none;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        font-size: 1.1rem;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-sizing: border-box;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      select {
+        cursor: pointer;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin-top: 30px;
+        color: #333;
+      }
+
+      pre {
+        width: 100%;
+        background: #f4f4f4;
+        padding: 20px;
+        text-align: left;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        max-height: 400px;
+        overflow-y: auto;
+        font-size: 1rem;
+        color: #333;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 900px;
+        box-sizing: border-box;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      .footer {
+        background-color: #303f9f; /* bg-indigo-darken-4 */
+        color: #ffffff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .logos-footer {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .logos-footer a {
+        display: inline-block;
+      }
+
+      .logo {
+        width: 100px;
+      }
+
+      .footer-text {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+
+      .divider {
+        border: none;
+        border-top: 1px solid #ffffff;
+        margin: 20px 0;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        background-color: #ffffff;
+        color: #303f9f;
+        border-radius: 20px;
+        padding: 5px 15px;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+
+      .chip-avatar {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+      }
+
+      .chip-text {
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+        .logos-footer {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .chip {
+          font-size: 0.9rem;
+        }
+
+        .chip-avatar {
+          width: 25px;
+          height: 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="title">
+        <img
+          src="./images/logo_row-to-tree_transparent.png"
+          style="height: 15svh"
+        />
+        <h2>Row to Tree Demo</h2>
+        <h2>📋 ➡️ 🌳</h2>
+      </div>
+      <hr />
+      <p>1️⃣ Paste here the array of objects you want to convert into a tree:</p>
+
+      <div class="form-group">
+        <label for="input">JSON Input</label>
+        <textarea
+          id="input"
+          placeholder='[{"id":1,"id_parent":null,"name":"ROOT"},{"id":2,"id_parent":1,"name":"LEAF 1"}]'
+        ></textarea>
+      </div>
+
+      <p>2️⃣ Test the different options:</p>
+
+      <div class="form-group">
+        <label for="idKey">Name of the ID key:</label>
+        <input type="text" id="idKey" value="id" placeholder="id" />
+      </div>
+
+      <div class="form-group">
+        <label for="parentKey">Name of the parent ID key:</label>
+        <input
+          type="text"
+          id="parentKey"
+          value="id_parent"
+          placeholder="id_parent"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="childrenKey">Key to name the children:</label>
+        <input
+          type="text"
+          id="childrenKey"
+          value="children"
+          placeholder="children"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="cleanEmptyChildren">Remove empty children?</label>
+        <select id="cleanEmptyChildren">
+          <option value="true">Yes</option>
+          <option value="false" selected>No</option>
+        </select>
+      </div>
+
+      <p align="center">
+        <button onclick="convert()">Convert</button>
+      </p>
+      <h3>Result:</h3>
+      <pre id="output"></pre>
+
+      <footer class="footer">
+        <div class="logos-footer">
+          <a href="https://www.npmjs.com/package/row-to-tree" target="_blank">
+            <img
+              src="https://raw.githubusercontent.com/npm/logos/cc343d8c50139f645d165aedfe4d375240599fd1/npm%20logo/classic/npm-2009.svg?raw=true"
+              alt="npm logo"
+              class="logo"
+            />
+          </a>
+          <a
+            href="https://github.com/cesar-lizurey/row-to-tree"
+            target="_blank"
+          >
+            <img
+              src="./images/GitHub_Logo_White.png"
+              alt="GitHub logo"
+              class="logo"
+            />
+          </a>
+        </div>
+
+        <div class="footer-text">
+          This npm module is open source. For any question, feel free to take a
+          look to the GitHub or NPM repos.
+        </div>
+
+        <hr class="divider" />
+
+        <div class="logos-footer">
+          <a href="https://cesar.lizurey.fr" target="_blank">
+            <div class="chip">
+              <img
+                src="https://cesar.lizurey.fr/img/cesar.jpeg"
+                alt="César LIZUREY"
+                class="chip-avatar"
+              />
+              <span class="chip-text">César LIZUREY</span>
+            </div>
+          </a>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      function convert() {
+        const input = document.getElementById("input").value;
+        const idKey = document.getElementById("idKey").value.trim() || "id";
+        const parentKey =
+          document.getElementById("parentKey").value.trim() || "id_parent";
+        const childrenKey =
+          document.getElementById("childrenKey").value.trim() || "children";
+        const cleanEmptyChildren =
+          document.getElementById("cleanEmptyChildren").value === "true"; // Boolean
+
+        try {
+          const rows = JSON.parse(input);
+          const options = {
+            idKey: idKey,
+            parentKey: parentKey,
+            childrenKey: childrenKey,
+            cleanEmptyChildren: cleanEmptyChildren,
+          };
+
+          const tree = window.rowToTree(rows, options);
+          document.getElementById("output").innerText = JSON.stringify(
+            tree,
+            null,
+            2
+          );
+        } catch (error) {
+          document.getElementById("output").innerText =
+            "Erreur : " + error.message;
+        }
+      }
+    </script>
+  </body>
+</html>

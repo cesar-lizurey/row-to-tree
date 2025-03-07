@@ -1,5 +1,16 @@
 # row-to-tree
 
+<div align="center">
+
+![Version](https://img.shields.io/badge/version-2.1.0-blue)
+![Test](https://img.shields.io/badge/test-passing-green)
+
+<a href="https://www.npmjs.com/package/row-to-tree">
+  <img src="https://raw.githubusercontent.com/npm/logos/cc343d8c50139f645d165aedfe4d375240599fd1/npm%20logo/classic/npm-2009.svg?raw=true" style="height:5svh;">
+</a>
+
+</div>
+
 Converts an array of objects into a tree structure
 
 ## Why?
@@ -91,16 +102,144 @@ You will get this nested array:
 
 `rowToTree(data, options)`
 
-Convert an array of objects into a tree structure.
+Convert an array of objects into a tree structure: returns an array of root objects.
 
-- `data` (Array): _the array of objects to convert;_
-- `options` (JSON, optional): _the JSON of customized paramaters_
-  - `idKey` (String, optional): _the name of the key that identifies an object (default: "id");_
-  - `parentKey` (String, optional): _the name of the key that identifies the parent of an object (default: "id_parent");_
-  - `childrenKey` (String, optional): _the name of the key that will contain the children of an object (default: "children")._
-  - `cleanEmptyChildren` (Boolean, optional): _delete the `childrenKey` if the node has no child, i.e. a leaf._
-
-Returns an array of root objects.
+<table>
+  <thead>
+    <tr>
+      <th colspan="2">
+        Key
+      </th>
+      <th>
+        Type
+      </th>
+      <th>
+        Optional
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+        Default
+      </th>
+    <tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2">
+        data
+      </td>
+      <td>
+        Array
+      </td>
+      <td>
+        ❌
+      </td>
+      <td>
+        the array of objects to convert
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        options
+      </td>
+      <td>
+        JSON
+      </td>
+      <td>
+        ✅
+      </td>
+      <td>
+        the JSON of customized paramaters
+      </td>
+      <td>
+        {}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        ├──
+      </td>
+      <td>
+        idKey
+      </td>
+      <td>
+        String
+      </td>
+      <td>
+        ✅
+      </td>
+      <td>
+        the name of the key that identifies an object
+      </td>
+      <td>
+        "id"
+      </td>
+    </tr>
+    <tr>
+      <td>
+        ├──
+      </td>
+      <td>
+        parentKey
+      </td>
+      <td>
+        String
+      </td>
+      <td>
+        ✅
+      </td>
+      <td>
+        the name of the key that identifies the parent of an object
+      </td>
+      <td>
+        "id_parent"
+      </td>
+    </tr>
+    <tr>
+      <td>
+        ├──
+      </td>
+      <td>
+        childrenKey
+      </td>
+      <td>
+        String
+      </td>
+      <td>
+        ✅
+      </td>
+      <td>
+        the name of the key that will contain the children of an object
+      </td>
+      <td>
+        "children"
+      </td>
+    </tr>
+    <tr>
+      <td>
+        └──
+      </td>
+      <td>
+        cleanEmptyChildren
+      </td>
+      <td>
+        Boolean
+      </td>
+      <td>
+        ✅
+      </td>
+      <td>
+        delete the `childrenKey` if the node has no child, i.e. a leaf.
+      </td>
+      <td>
+        false
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## Licence
 

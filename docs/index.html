@@ -247,6 +247,11 @@
           id="input"
           placeholder='[{"id":1,"id_parent":null,"name":"ROOT"},{"id":2,"id_parent":1,"name":"LEAF 1"}]'
         ></textarea>
+        <p align="center">
+          <button type="button" onclick="loadExampleData()">
+            Load example data
+          </button>
+        </p>
       </div>
 
       <p>2️⃣ Test the different options:</p>
@@ -363,6 +368,17 @@
           document.getElementById("output").innerText =
             "Erreur : " + error.message;
         }
+      }
+
+      function loadExampleData() {
+        const data = [
+          { id: 1, id_parent: null, name: "ROOT" },
+          { id: 2, id_parent: 1, name: "LEAF 2" },
+          { id: 4, id_parent: 1, name: "LEAF SISTER" },
+          { id: 6, id_parent: 2, name: "OTHER LEAF" },
+          { id: 5, id_parent: null, name: "NEW ROOT" },
+        ];
+        document.getElementById("input").value = JSON.stringify(data, null, 2);
       }
     </script>
   </body>

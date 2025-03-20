@@ -7,34 +7,38 @@ function rowToTree(data, options = {}) {
   };
   const mergedOptions = { ...defaultOptions, ...options };
 
-  // Row sort so that rows are treated in order
-  data.sort((a, b) => {
-    if (a[mergedOptions.parentKey] === null) return -1;
-    if (b[mergedOptions.parentKey] === null) return 1;
-    return a[mergedOptions.parentKey] - b[mergedOptions.parentKey];
-  });
-
   const map = {};
   const roots = [];
 
   data.forEach((item) => {
-    const newItem = { ...item, [mergedOptions.childrenKey]: [] };
-    map[newItem[mergedOptions.idKey]] = newItem;
-    const parent = map[newItem[mergedOptions.parentKey]];
-    if (parent) {
-      parent[mergedOptions.childrenKey].push(newItem);
+    const id = item[mergedOptions.idKey];
+    const parentId = item[mergedOptions.parentKey];
+
+    if (!map[id]) {
+      map[id] = { ...item, [mergedOptions.childrenKey]: [] };
     } else {
-      roots.push(newItem);
+      Object.assign(map[id], item);
+    }
+
+    const node = map[id];
+
+    if (parentId === null) {
+      roots.push(node);
+    } else {
+      if (!map[parentId]) {
+        map[parentId] = { [mergedOptions.childrenKey]: [] };
+      }
+      map[parentId][mergedOptions.childrenKey].push(node);
     }
   });
 
-  // Fonction récursive pour supprimer les clés vides si cleanEmptyChildren est activé
-  function cleanTree(node) {
-    if (Array.isArray(node)) {
-      node.forEach(cleanTree);
-    } else {
-      if (
-        mergedOptions.cleanEmptyChildren &&
+  // Deletion of empty children arrays if cleanEmptyChildren is true
+  if (mergedOptions.cleanEmptyChildren) {
+    function cleanTree(node) {
+      if (Array.isArray(node)) {
+        node.forEach(cleanTree);
+      } else if (
+        node[mergedOptions.childrenKey] &&
         node[mergedOptions.childrenKey].length === 0
       ) {
         delete node[mergedOptions.childrenKey];
@@ -42,19 +46,10 @@ function rowToTree(data, options = {}) {
         node[mergedOptions.childrenKey].forEach(cleanTree);
       }
     }
-  }
-
-  if (mergedOptions.cleanEmptyChildren) {
     cleanTree(roots);
   }
 
-  /*
-    There may be several roots, that's why an Array is returned.
-    The roots are sorted by their id, in order to prevent a random order of the items
-  */
-  return roots.sort((a, b) =>
-    a[mergedOptions.idKey] > b[mergedOptions.idKey] ? 1 : -1
-  );
+  return roots;
 }
 
 module.exports = {

@@ -4,7 +4,7 @@
 
 <img src="./docs/images/logo_row-to-tree_transparent.png" style="height:15svh;">
 
-![Version](https://img.shields.io/badge/version-2.1.0-blue)
+![Version](https://img.shields.io/badge/version-2.2.0-blue)
 ![Test](https://img.shields.io/badge/test-passing-green)
 [![Version](https://img.shields.io/badge/try-me-yellow)](https://cesar-lizurey.github.io/row-to-tree/)
 
@@ -14,7 +14,7 @@
 
 </div>
 
-Converts an array of objects into a tree structure. If you want to test it, go to the [demo](https://cesar-lizurey.github.io/row-to-tree/)!
+Converts an array of objects into a tree structure, `backend` or `frontend`. If you want to test it, go to the [demo](https://cesar-lizurey.github.io/row-to-tree/)!
 
 ## Why?
 

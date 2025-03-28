@@ -6,6 +6,9 @@
 
 ![Version](https://img.shields.io/badge/version-2.2.0-blue)
 ![Test](https://img.shields.io/badge/test-passing-green)
+![Test](https://img.shields.io/badge/dependencies-0-green)
+![Test](<https://img.shields.io/badge/complexity-O(n)-blue>)
+
 [![Version](https://img.shields.io/badge/try-me-yellow)](https://cesar-lizurey.github.io/row-to-tree/)
 
 <a href="https://www.npmjs.com/package/row-to-tree">
@@ -15,6 +18,8 @@
 </div>
 
 Converts an array of objects into a tree structure, `backend` or `frontend`, with an optimal linear complexity O(n), taking into account various useful options to manage your data. If you want to test it, go to the [demo](https://cesar-lizurey.github.io/row-to-tree/)!
+
+There is no dependency, all the code is here!
 
 ## Why?
 

@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="./docs/images/logo_row-to-tree_transparent.png" style="height:15svh;">
+<img src="./docs/images/logo_row-to-tree_transparent.png" height="150">
 
 ![Version](https://img.shields.io/badge/version-2.2.0-blue)
 ![Test](https://img.shields.io/badge/test-passing-green)
@@ -12,7 +12,7 @@
 [![Version](https://img.shields.io/badge/try-me-yellow)](https://cesar-lizurey.github.io/row-to-tree/)
 
 <a href="https://www.npmjs.com/package/row-to-tree">
-  <img src="https://raw.githubusercontent.com/npm/logos/cc343d8c50139f645d165aedfe4d375240599fd1/npm%20logo/classic/npm-2009.svg?raw=true" style="height:5svh;">
+  <img src="https://raw.githubusercontent.com/npm/logos/cc343d8c50139f645d165aedfe4d375240599fd1/npm%20logo/classic/npm-2009.svg?raw=true" height="50">
 </a>
 
 </div>
@@ -27,7 +27,9 @@ When you make a SQL request, you often get an array of rows, each of them being 
 
 This module helps you convert the original array into an array of parents and child, building the expected tree:
 
-> ![Expected output][expectedOutput]
+<div align="center">
+<img src="./docs/images/diagram.png">
+</div>
 
 ## Example
 
@@ -36,7 +38,7 @@ The test file provides an example of what could be done. Suppose you have the fo
 | id  | id_parent |    name     |
 | :-: | :-------: | :---------: |
 |  1  |   null    |    ROOT     |
-|  2  |     1     |   LEAF 2    |
+|  2  |     1     |    NODE     |
 |  4  |     1     | LEAF SISTER |
 |  6  |     2     | OTHER LEAF  |
 |  5  |   null    |  NEW ROOT   |
@@ -58,7 +60,7 @@ const { rowToTree } = require("row-to-tree");
 
 const data = [
   { id: 1, id_parent: null, name: "ROOT" },
-  { id: 2, id_parent: 1, name: "LEAF 2" },
+  { id: 2, id_parent: 1, name: "NODE" },
   { id: 4, id_parent: 1, name: "LEAF SISTER" },
   { id: 6, id_parent: 2, name: "OTHER LEAF" },
   { id: 5, id_parent: null, name: "NEW ROOT" },
@@ -79,7 +81,7 @@ You will get this nested array:
       {
         id: 2,
         id_parent: 1,
-        name: "LEAF 2",
+        name: "NODE",
         children: [
           {
             id: 6,
@@ -252,5 +254,3 @@ Convert an array of objects into a tree structure: returns an array of root obje
 ## Licence
 
 MIT
-
-[expectedOutput]: ./docs/images/diagram.png "Expected output"

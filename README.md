@@ -19,7 +19,7 @@
 
 Converts an array of objects into a tree structure, `backend` or `frontend`, with an optimal linear complexity O(n), taking into account various useful options to manage your data. If you want to test it, go to the [demo](https://cesar-lizurey.github.io/row-to-tree/)!
 
-There is no dependency, all the code is here!
+There is no dependency in this ultralight library, all the code is here!
 
 ## Why?
 

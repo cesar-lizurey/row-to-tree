@@ -4,7 +4,7 @@
 
 <img src="./docs/images/logo_row-to-tree_transparent.png" height="150">
 
-![Version](https://img.shields.io/badge/version-2.2.0-blue)
+![Version](https://img.shields.io/badge/version-2.3.0-blue)
 ![Test](https://img.shields.io/badge/test-passing-green)
 ![Test](https://img.shields.io/badge/dependencies-0-green)
 ![Test](<https://img.shields.io/badge/complexity-O(n)-blue>)
